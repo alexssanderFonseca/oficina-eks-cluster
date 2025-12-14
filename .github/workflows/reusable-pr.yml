@@ -31,9 +31,8 @@ jobs:
           
             Este PR foi criado automaticamente após validações bem-sucedidas:
           
-            ✅ Build concluído com sucesso
-            ✅ Testes passaram
-            ✅ Imagem Docker validada
+            ✅ Terraform plan executado com sucesso
+
           
             **Branch:** ${{ inputs.branch-name }}
             **Commit:** ${{ github.sha }}
