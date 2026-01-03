@@ -14,6 +14,6 @@ resource "aws_eks_node_group" "eks-node" {
   }
 
   update_config {
-    max_unavailable = 0
+    max_unavailable = 1
   }
 }
