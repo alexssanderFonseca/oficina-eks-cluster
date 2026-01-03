@@ -1,14 +1,13 @@
 resource "aws_eks_access_entry" "eks-access-entry" {
-  cluster_name      = aws_eks_cluster.eks-cluster.name
-  principal_arn     = var.principalArn
-  kubernetes_groups = ["fiap"]
-  type              = "STANDARD"
+  cluster_name  = aws_eks_cluster.eks-cluster.name
+  principal_arn = data.aws_caller_identity.current.arn
+  type          = "STANDARD"
 }
 
 resource "aws_eks_access_policy_association" "eks-access-policy" {
   cluster_name  = aws_eks_cluster.eks-cluster.name
-  policy_arn    = var.policyArn
-  principal_arn = var.principalArn
+  policy_arn    = "arn:aws:iam::aws:policy/AmazonEKSAdminPolicy"
+  principal_arn = data.aws_caller_identity.current.arn
 
   access_scope {
     type = "cluster"
