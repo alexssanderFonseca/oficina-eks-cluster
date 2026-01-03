@@ -1,7 +1,7 @@
 
 resource "aws_eks_cluster" "eks-cluster" {
   name     = var.projectName
-  role_arn = var.labRole
+  role_arn = aws_iam_role.eks_cluster_role.arn
 
   vpc_config {
     subnet_ids         = module.vpc.private_subnets
